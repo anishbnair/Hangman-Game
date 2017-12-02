@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman Game</title>
+    <!-- Bootstrap CDN --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!--linking CSS file -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">Hangman Game!!!</h1>
+            <h2>Guess The Country!!!</h2>
+            <!--<h3>Press any letter to continue!!!</h3>-->
+        </div>
+    </div>
+
+    <div class="card text-center">
+        <div class="card-header">
+              <h3>Press any letter to continue :)</h3>
+        </div>
+        <div class="card-body">
+            <h2 id="wordToGuess">_ _ _ _ _ _ _</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Wrong Guesses:</h4>
+                  <span id="wrongGuesses"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Guesses Left:</h4>
+                  <span id="numGuesses"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Win Counter:</h4>
+                    <span id="winCounter">0</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Loss Counter:</h4>
+                    <span id="lossCounter">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="assets/javascript/hangman.js"></script>
+    
+</body>
+
+</html>
