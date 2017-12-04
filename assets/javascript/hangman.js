@@ -2,7 +2,7 @@
 // ===============================================================================
 // Create an array with list of words
 // Computer selects a random word from the array
-// Create a placeholder array to store random selected word by adding '_' corresponding to the number of letters in the word
+// Create a placeholder array to store random selected word by adding underscores corresponding to the number of letters in the word
 // Function to create placeholder word correspoding to the length of the randonnly selected word 
 // User guess the word
 // Compare the word
@@ -18,10 +18,12 @@ var prevPlaceholderArray = [];
 var wordPlaceholder = [];
 var lettersGuessed = [];
 var word = [];
-var wordPlaceholderString = "";
+//var wordPlaceholderString = "";
+var lettersGuessedString = "";
 var userInput = "";
 var correctGuessCount = 0;
 var guessesLeft = 10;
+
 
 // Object of Country words.
 var countryWords = {
@@ -43,6 +45,8 @@ document.onkeyup = function(event) {
     //userInput = String.fromCharCode(keyPress).toUpperCase();
     userInput = event.key.toUpperCase();
     console.log('This is the key entered', userInput);
+
+    
 };
 
 // FUNCTIONS
@@ -73,6 +77,44 @@ function createWordPlaceholder(word) {
     document.getElementById("word-placeholder").textContent = wordPlaceholderString;
     return wordPlaceholder;
 };
+//createWordPlaceholder(word);
+
+// Function to track user guesses 
+function  trackLetterGuesses(userInput) {
+
+    for (i = 0; i < lettersGuessed.length; i++) {
+        if (userInput == lettersGuessed[i]) {
+            console.log(userInput);
+            return;      
+        }
+        console.log(userInput);
+    }
+    // Push the letters guessed to the array
+    lettersGuessed.push(userInput);
+    console.log("LettersGuessed array item: " + lettersGuessed[0]);
+    
+    // Convert letters guessed array to string for displaying in UI
+    var lettersGuessedString = lettersGuessed.join(", ");
+    document.getElementById('letters-guessed').innerHTML = lettersGuessedString;
+        
+    // Reduce number of guesses left for each guessed letter
+    guessesLeft--;
+    
+    // Display number of guesses left in UI
+    document.getElementById('guess-count').innerHTML = guessesLeft;
+    console.log('Guesses left', + guessesLeft);
+    
+    // Restart game of no guesses left
+    if (guessesLeft == 0) {
+        //Restart Game 
+    }
+    return lettersGuessedString;     
+};
+//trackLetterGuesses(userInput);
+
+
+
+
 
 
 
