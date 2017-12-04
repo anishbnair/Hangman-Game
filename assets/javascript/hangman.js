@@ -33,4 +33,29 @@ var countryWords = {
 var wordArray = [countryWords.word1, countryWords.word2, countryWords.word3, countryWords.word4];
 console.log(wordArray);
 
+// Converts user guessed letter into uppercase 
+document.onkeyup = function(event) {
+    //var keyPress;    
+    //keyPress = event.keyCode;
+    // Convert user input key to upper case string.
+    //userInput = String.fromCharCode(keyPress).toUpperCase();
+    userInput = event.key.toUpperCase();
+    console.log('This is the key entered', userInput);
+    //console.log(userInput);
+};
+
+// Functions 
+
+// Function to select random word from the array
+function createWord(wordArray) {
+    word = wordArray[Math.floor(Math.random()*wordArray.length)];
+    console.log(word);
+    //Create placeholder for word in UI
+	//createWordPlaceholder(word);
+	//return word;
+};
+createWord(wordArray);
+
+
+
 
