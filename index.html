@@ -16,55 +16,39 @@
     <div class="container">
         <div class="jumbotron">
             <h1 class="display-3">Hangman Game!!!</h1>
-            <h2>Guess The Country!!!</h2>
-            <!--<h3>Press any letter to continue!!!</h3>-->
+            <h2>Guess The Country!!!</h2>           
         </div>
     </div>
 
     <div class="card text-center">
-        <div class="card-header">
-              <h3>Press any letter to continue :)</h3>
-        </div>
-        <div class="card-body">
-            <h2 id="wordToGuess">_ _ _ _ _ _ _</h2>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Wrong Guesses:</h4>
-                  <span id="wrongGuesses"></span>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Guesses Left:</h4>
-                  <span id="numGuesses"></span>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Win Counter:</h4>
-                    <span id="winCounter">0</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Loss Counter:</h4>
-                    <span id="lossCounter">0</span>
-                </div>
-            </div>
+        <div class="card-body">         
+            <p>
+                PRESS ANY KEY TO GET STARTED
+            </p>
+            <p>
+                WINS!
+            </p>
+            <p id="win-count">
+            </p>
+            <p>
+                CURRENT WORD
+            </p>
+            <p id="word-placeholder">
+            </p>
+            <p>
+                NUMBER OF GUESSES REMAINING
+            </p>
+            <p id="guess-count">
+            </p>
+            <p>
+                LETTERS ALREADY GUESSED
+            </p>
+            <p id="letters-guessed">
+            </p>
         </div>
     </div>
-    
+       
+    <!--Linking JavaScript file -->
     <script type="text/javascript" src="assets/javascript/hangman.js"></script>
     
 </body>
