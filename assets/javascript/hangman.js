@@ -1,12 +1,13 @@
+// Pseudo Code
+// ===============================================================================
+// Create an array with list of words
+// Computer selects a random word from the array
+// Create a placeholder array to store random selected word by adding '_' corresponding to the number of letters in the word
+// User guess the word
+// Compare the word
+// Win / loose
+// Restart 
 
-//Computer randomly choose a word 
-//User guess the word
-//Compare the word
-//Win / loose
-
-
-// var letter = event.key.toLowerCase();
-// console.log(letter);
 
 // VARIABLES
 // =================================================================================
@@ -41,11 +42,10 @@ document.onkeyup = function(event) {
     //userInput = String.fromCharCode(keyPress).toUpperCase();
     userInput = event.key.toUpperCase();
     console.log('This is the key entered', userInput);
-    //console.log(userInput);
 };
 
-// Functions 
-
+// FUNCTIONS
+//================================================================================================
 // Function to select random word from the array
 function createWord(wordArray) {
     word = wordArray[Math.floor(Math.random()*wordArray.length)];
@@ -55,6 +55,27 @@ function createWord(wordArray) {
 	//return word;
 };
 createWord(wordArray);
+
+// Create placeholder for word in UI.
+
+//Replace placeholder array with underscore corresponding to each letter of the word
+for (i = 0; i < word.length; i++) {
+    wordPlaceholder.push("_");
+    console.log(wordPlaceholder);
+};
+
+// Join the underscores together and display as a string 
+wordPlaceholderString = wordPlaceholder.join(" ");
+console.log(wordPlaceholderString);
+
+
+
+
+
+
+
+
+
 
 
 
