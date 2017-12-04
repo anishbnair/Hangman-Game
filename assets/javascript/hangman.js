@@ -3,6 +3,7 @@
 // Create an array with list of words
 // Computer selects a random word from the array
 // Create a placeholder array to store random selected word by adding '_' corresponding to the number of letters in the word
+// Function to create placeholder word correspoding to the length of the randonnly selected word 
 // User guess the word
 // Compare the word
 // Win / loose
@@ -51,22 +52,33 @@ function createWord(wordArray) {
     word = wordArray[Math.floor(Math.random()*wordArray.length)];
     console.log(word);
     //Create placeholder for word in UI
-	//createWordPlaceholder(word);
-	//return word;
+	createWordPlaceholder(word);
+	return word;
 };
 createWord(wordArray);
 
-// Create placeholder for word in UI.
-
-//Replace placeholder array with underscore corresponding to each letter of the word
-for (i = 0; i < word.length; i++) {
-    wordPlaceholder.push("_");
+// Function to create placeholder word with underscores corresponding to the length of the randomly selected word 
+function createWordPlaceholder(word) {
+    //Replace placeholder array with underscore corresponding to each letter of the word
+    for (i = 0; i < word.length; i++) {
+        wordPlaceholder.push("_");
+    };
     console.log(wordPlaceholder);
+
+    // Join the underscores together and display as a string 
+    wordPlaceholderString = wordPlaceholder.join(" ");
+    console.log(wordPlaceholderString);
+
+    // Display undescores in UI correspoding to the length of the randonnly selected word 
+    document.getElementById("word-placeholder").textContent = wordPlaceholderString;
+    return wordPlaceholder;
 };
 
-// Join the underscores together and display as a string 
-wordPlaceholderString = wordPlaceholder.join(" ");
-console.log(wordPlaceholderString);
+
+
+
+
+
 
 
 
