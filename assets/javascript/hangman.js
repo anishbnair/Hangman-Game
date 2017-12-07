@@ -1,5 +1,5 @@
 // Pseudo Code
-// ===============================================================================
+// ================================================================================================================================
 // Create an array with list of words
 // Computer selects a random word from the array
 // Create a placeholder array to store random selected word by adding underscores corresponding to the number of letters in the word
@@ -10,7 +10,7 @@
 
 
 // VARIABLES
-// =================================================================================
+// ================================================================================================================================
 var wins = 0;
 var placeholderArray = [];
 var prevPlaceholderArray = [];
@@ -23,7 +23,6 @@ var userInput = "";
 var correctGuessCount = 0;
 var guessesLeft = 10;
 
-
 // Object of Country words.
 var countryWords = {
     word1: ["U", "S", "A"],
@@ -32,7 +31,7 @@ var countryWords = {
     word4: ["J", "A", "P", "A", "N"],
 };
 
-// Array of Coutry words created from object.
+// Array of words created from object
 var wordArray = [countryWords.word1, countryWords.word2, countryWords.word3, countryWords.word4];
 console.log(wordArray);
 
@@ -42,20 +41,20 @@ createWord(wordArray);
 // Converts user guessed letter into uppercase 
 document.onkeyup = function (event) {
 
-    //Convert user input key to upper case string.
-    //userInput = String.fromCharCode(keyPress).toUpperCase();
+    // Convert user input key to upper case string
+    // userInput = String.fromCharCode(keyPress).toUpperCase();
     userInput = event.key.toUpperCase();
     console.log('This is the key entered', userInput);
 
     // Calls function to track user guesses
     trackLetterGuesses(userInput);
 
-    // Build hangman word based on new user input.
+    // Calls function to build word based on new user input
         buildWord(userInput);
 };
 
 // FUNCTIONS
-//================================================================================================
+//=================================================================================================================================
 // Function to select random word from the array
 function createWord(wordArray) {
     word = wordArray[Math.floor(Math.random() * wordArray.length)];
@@ -64,7 +63,6 @@ function createWord(wordArray) {
     createWordPlaceholder(word);
     return word;
 };
-//createWord(wordArray);
 
 // Function to create placeholder array with underscores corresponding to the length of the randomly selected word 
 function createWordPlaceholder(word) {
@@ -94,6 +92,7 @@ function trackLetterGuesses(userInput) {
         }
     }
     //console.log(userInput);
+
     // Push the letters guessed to the array
     lettersGuessed.push(userInput);
     console.log("LettersGuessed array item: " + lettersGuessed[i]);
@@ -111,6 +110,7 @@ function trackLetterGuesses(userInput) {
 
     // Restart game of no guesses left
     if (guessesLeft == 0) {
+        // Calls function to Restart game
         restartGame();
     }
     return lettersGuessedString;
@@ -126,39 +126,38 @@ function buildWord(userInput) {
         // Display letters and underscores 
     } else {
         placeholderArray = prevPlaceholderArray;
-        console.log("Placehokder array content is " + placeholderArray);
     }
     console.log("Placehokder array content is " + placeholderArray);
 
-    // // Replace underscore with matching letter
+    // Replace underscore with matching letter
     for (i = 0; i < word.length; i++) {
         if (userInput == word[i]) {
             console.log(userInput + "in word at" + i)
             placeholderArray[i] = userInput;
         }
     }
+    console.log("Placeholder Array is " + placeholderArray);
     prevPlaceholderArray = placeholderArray;
-    //console.log(placeholderArray);
-    //console.log(prevPlaceholderArray);
+    console.log("Previous placehoder Array is " + prevPlaceholderArray);
 
-    // // Convert placeholder array to string to display in UI
+    // Convert placeholder array to string to display in UI
     placeholder = placeholderArray.join(" ");
     console.log(placeholder);
     document.getElementById('word-placeholder').innerHTML = placeholder;
 
     console.log("Placeholder Array length is " + placeholderArray.length);
-    console.log("Placeholder split is " + placeholder.split(","));
+    console.log("Placeholder is " + placeholder);
     console.log("Word join is " + word.join(" "));
 
-    // User wins when placeholder matches word.
-    if (placeholder.split(',') == word.join(" ")) {
+    if (placeholder == word.join(" ")) {
     	wins++;
-    	document.getElementById('win-count').innerHTML = wins;
-        restartGame();      
+        document.getElementById('win-count').innerHTML = wins;
+        // Calls function to Restart game
+        restartGame();     
     }
 };
 
-//Restart game, initializing several values
+// Function to Restart/Reset game
 function restartGame(wordPlaceholder) {
 	
 	// Add new word.
