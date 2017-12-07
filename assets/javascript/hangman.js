@@ -41,12 +41,12 @@ createWord(wordArray);
 
 // Converts user guessed letter into uppercase 
 document.onkeyup = function (event) {
-    if (typeof event != 'undefined') {
-        var keyPress;    
-     keyPress = event.keyCode;
+    //if (typeof event != 'undefined') {
+        //var keyPress;    
+     //keyPress = event.keyCode;
         // Convert user input key to upper case string.
-    userInput = String.fromCharCode(keyPress).toUpperCase();
-    //userInput = event.key.toUpperCase();
+    //userInput = String.fromCharCode(keyPress).toUpperCase();
+    userInput = event.key.toUpperCase();
     console.log('This is the key entered', userInput);
 
     // Calls function to track user guesses
@@ -54,7 +54,7 @@ document.onkeyup = function (event) {
 
     // Build hangman word based on new user input.
         buildWord(userInput);
-    };
+    //};
 
 };
 
@@ -87,7 +87,7 @@ function createWordPlaceholder(word) {
     document.getElementById("word-placeholder").textContent = wordPlaceholderString;
     return wordPlaceholder;
 };
-//createWordPlaceholder(word);
+
 
 // Function to track user guesses 
 function trackLetterGuesses(userInput) {
@@ -119,7 +119,7 @@ function trackLetterGuesses(userInput) {
 
     // Restart game of no guesses left
     if (guessesLeft == 0) {
-        //Restart Game - to be coded 
+        restartGame();
     }
     return lettersGuessedString;
 };
@@ -162,10 +162,33 @@ function buildWord(userInput) {
     if (placeholder.split(',') == word.join(" ")) {
     	wins++;
     	document.getElementById('win-count').innerHTML = wins;
-        // Restart Game - to be coded
-      
+        restartGame();      
     }
 };
+
+//Restart game, initializing several values
+function restartGame(wordPlaceholder) {
+	
+	// Add new word.
+	createWord(wordArray);
+
+	//Empty user input and placeholder values
+    userInput = "";
+	prevPlaceholderArray = [];
+	placeholderArray = [];
+
+	// Reset remaining guesses
+	guessesLeft = 10;
+
+	// Reset guess count
+	correctGuessCount = 0;
+	document.getElementById('guess-count').innerHTML = guessesLeft;
+
+	// Reset list of letters guessed
+	lettersGuessed = [];
+	document.getElementById('letters-guessed').innerHTML = lettersGuessed;
+};
+
 
 
 
