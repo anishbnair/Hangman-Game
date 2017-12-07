@@ -41,10 +41,8 @@ createWord(wordArray);
 
 // Converts user guessed letter into uppercase 
 document.onkeyup = function (event) {
-    //if (typeof event != 'undefined') {
-        //var keyPress;    
-     //keyPress = event.keyCode;
-        // Convert user input key to upper case string.
+
+    //Convert user input key to upper case string.
     //userInput = String.fromCharCode(keyPress).toUpperCase();
     userInput = event.key.toUpperCase();
     console.log('This is the key entered', userInput);
@@ -54,8 +52,6 @@ document.onkeyup = function (event) {
 
     // Build hangman word based on new user input.
         buildWord(userInput);
-    //};
-
 };
 
 // FUNCTIONS
@@ -88,18 +84,14 @@ function createWordPlaceholder(word) {
     return wordPlaceholder;
 };
 
-
 // Function to track user guesses 
 function trackLetterGuesses(userInput) {
 
     for (i = 0; i < lettersGuessed.length; i++) {
         //console.log(lettersGuessed.length);
         if (userInput == lettersGuessed[i]) {
-            //console.log(userInput);
-            //console.log(lettersGuessed[i]);
             return;
         }
-        //console.log(userInput);
     }
     //console.log(userInput);
     // Push the letters guessed to the array
