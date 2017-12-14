@@ -33,12 +33,12 @@ var countryWords = {
     word6: ["B", "R", "A", "Z", "I", "L"],
     word7: ["Z", "A", "M", "B", "I", "A"],
     word8: ["Y", "E", "M", "E", "N"],
-    word9: ["Y", "E", "M", "E", "N"],
+    word9: ["M", "E", "X", "I", "C", "O"],
     word10: ["U", "G", "A", "N", "D", "A"],
 };
 
 // Array of words created from object
-var wordArray = [countryWords.word1, countryWords.word2, countryWords.word3, countryWords.word4];
+var wordArray = [countryWords.word1, countryWords.word2, countryWords.word3, countryWords.word4, countryWords.word5, countryWords.word6, countryWords.word7, countryWords.word8, countryWords.word9, countryWords.word10];
 
 // Calls the function to select a random word to initialize the game
 createWord(wordArray);
