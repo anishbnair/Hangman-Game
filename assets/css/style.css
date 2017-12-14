@@ -1,3 +1,13 @@
 html, body {
     background: url("../images/map.jpg");
 } 
+
+.container {
+    height: 25%;
+	width: 100%;
+}
+
+p {
+    font-size: 20px; 
+    color: maroon;   
+}
