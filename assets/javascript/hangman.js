@@ -29,11 +29,16 @@ var countryWords = {
     word2: ["I", "N", "D", "I", "A"],
     word3: ["C", "A", "N", "A", "D", "A"],
     word4: ["J", "A", "P", "A", "N"],
+    word5: ["C", "H", "I", "N", "A"],
+    word6: ["B", "R", "A", "Z", "I", "L"],
+    word7: ["Z", "A", "M", "B", "I", "A"],
+    word8: ["Y", "E", "M", "E", "N"],
+    word9: ["Y", "E", "M", "E", "N"],
+    word10: ["U", "G", "A", "N", "D", "A"],
 };
 
 // Array of words created from object
 var wordArray = [countryWords.word1, countryWords.word2, countryWords.word3, countryWords.word4];
-console.log(wordArray);
 
 // Calls the function to select a random word to initialize the game
 createWord(wordArray);
@@ -42,13 +47,9 @@ createWord(wordArray);
 document.onkeyup = function (event) {
 
     // Convert user input key to upper case string
-    // userInput = String.fromCharCode(keyPress).toUpperCase();
     userInput = event.key.toUpperCase();
-    console.log('This is the key entered', userInput);
-
     // Calls function to track user guesses
     trackLetterGuesses(userInput);
-
     // Calls function to build word based on new user input
         buildWord(userInput);
 };
@@ -58,7 +59,6 @@ document.onkeyup = function (event) {
 // Function to select random word from the array
 function createWord(wordArray) {
     word = wordArray[Math.floor(Math.random() * wordArray.length)];
-    console.log(word);
     //Create placeholder for word in UI
     createWordPlaceholder(word);
     return word;
@@ -71,11 +71,9 @@ function createWordPlaceholder(word) {
     for (i = 0; i < word.length; i++) {
         wordPlaceholder.push("_");
     };
-    console.log(wordPlaceholder);
 
     // Join the underscores together and display as a string 
     wordPlaceholderString = wordPlaceholder.join(" ");
-    console.log(wordPlaceholderString);
 
     // Display undescores in UI correspoding to the length of the randonnly selected word 
     document.getElementById("word-placeholder").textContent = wordPlaceholderString;
@@ -86,16 +84,13 @@ function createWordPlaceholder(word) {
 function trackLetterGuesses(userInput) {
 
     for (i = 0; i < lettersGuessed.length; i++) {
-        //console.log(lettersGuessed.length);
         if (userInput == lettersGuessed[i]) {
             return;
         }
     }
-    //console.log(userInput);
 
     // Push the letters guessed to the array
     lettersGuessed.push(userInput);
-    console.log("LettersGuessed array item: " + lettersGuessed[i]);
 
     // Convert letters guessed array to string for displaying in UI
     var lettersGuessedString = lettersGuessed.join(", ");
@@ -106,7 +101,6 @@ function trackLetterGuesses(userInput) {
 
     // Display number of guesses left in UI
     document.getElementById('guess-count').innerHTML = guessesLeft;
-    console.log('Guesses left', + guessesLeft);
 
     // Restart game of no guesses left
     if (guessesLeft == 0) {
@@ -122,12 +116,10 @@ function buildWord(userInput) {
     // Initialize placeholder array with underscore array
     if (prevPlaceholderArray.length == 0) {
         placeholderArray = createWordPlaceholder(word);
-        console.log("Placeholder array content is " + placeholderArray);
         // Display letters and underscores 
     } else {
         placeholderArray = prevPlaceholderArray;
     }
-    console.log("Placehokder array content is " + placeholderArray);
 
     // Replace underscore with matching letter
     for (i = 0; i < word.length; i++) {
@@ -136,18 +128,11 @@ function buildWord(userInput) {
             placeholderArray[i] = userInput;
         }
     }
-    console.log("Placeholder Array is " + placeholderArray);
     prevPlaceholderArray = placeholderArray;
-    console.log("Previous placehoder Array is " + prevPlaceholderArray);
 
     // Convert placeholder array to string to display in UI
     placeholder = placeholderArray.join(" ");
-    console.log(placeholder);
     document.getElementById('word-placeholder').innerHTML = placeholder;
-
-    console.log("Placeholder Array length is " + placeholderArray.length);
-    console.log("Placeholder is " + placeholder);
-    console.log("Word join is " + word.join(" "));
 
     if (placeholder == word.join(" ")) {
     	wins++;
@@ -179,6 +164,7 @@ function restartGame(wordPlaceholder) {
 	lettersGuessed = [];
 	document.getElementById('letters-guessed').innerHTML = lettersGuessed;
 };
+
 
 
 
